@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         node: [16, 18, 20]
+        pnpm: [7, 8, 9]
 
     steps:
       - name: Checkout
@@ -19,6 +20,8 @@ jobs:
 
       - name: PNPM Setup
         uses: pnpm/action-setup@v4
+        with:
+          version: ${{ matrix.pnpm }}
 
       - name: Setup node | ${{ matrix.node }}
         uses: actions/setup-node@v4
