@@ -39,8 +39,14 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Build docker image
-        run: docker build -t ndelanhese/delanhese-devops-ci-api:${{ steps.generate_tag.outputs.sha }} .
+      # - name: Build docker image
+      #   run: docker build -t ndelanhese/delanhese-devops-ci-api:${{ steps.generate_tag.outputs.sha }} .
 
-      - name: Push image
-        run: docker push ndelanhese/delanhese-devops-ci-api:${{ steps.generate_tag.outputs.sha }}
+      # - name: Push image
+      #   run: docker push ndelanhese/delanhese-devops-ci-api:${{ steps.generate_tag.outputs.sha }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: ndelanhese/delanhese-devops-ci-api:${{ steps.generate_tag.outputs.sha }},ndelanhese/delanhese-devops-ci-api:latest
