@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    name: "Build and Push"
+    name: 'Build and Push'
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.12.2
-          cache: "pnpm"
+          cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm run test
 
@@ -57,12 +57,12 @@ jobs:
       #     push: true
       #     tags: ndelanhese/delanhese-devops-ci-api:${{ steps.generate_tag.outputs.sha }},ndelanhese/delanhese-devops-ci-api:latest
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-      role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
-      aws-region: us-east-2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+        role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
+        aws-region: us-east-2
 
-    - name: Login to AWS ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
+      - name: Login to AWS ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
