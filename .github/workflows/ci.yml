@@ -64,7 +64,7 @@ jobs:
         with:
           service: app-runner-git-deploy-service
           image: ${{ steps.build-image.outputs.image }}
-          access-role-arn: ${{ secrets.AWS_IAM_ROLE_ARN }}
+          access-role-arn: ${{ secrets.AWS_IAM_APP_RUNNER_ROLE_ARN }}
           region: ${{ secrets.AWS_REGION }}
           cpu: 1
           memory: 2
