@@ -1,18 +1,23 @@
-FROM node:20.12.2-alpine3.19 AS build
+FROM node:20.14.0-alpine3.19 AS build
 
 WORKDIR /usr/src/app
 
-COPY package.json pnpm-lock* ./
-RUN corepack enable pnpm && pnpm i --frozen-lockfile
+RUN npm install -g pnpm
+
+COPY package.json pnpm-lock.yaml ./
+
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN corepack enable pnpm && pnpm run build
-RUN corepack enable pnpm && pnpm i --production && pnpm prune
+RUN pnpm run build
+RUN pnpm install --prod --frozen-lockfile
 
-FROM node:20.12.2-alpine3.19
+FROM node:20.14.0-alpine3.19
 
 WORKDIR /usr/src/app
+
+RUN npm install -g pnpm
 
 COPY --from=build /usr/src/app/package.json ./package.json
 COPY --from=build /usr/src/app/dist ./dist
