@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ndelanhese/ignite-devops-ci-cd-studies/compare/v1.0.0...v1.0.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* :green_heart: fix ci permissions ([6bcd597](https://github.com/ndelanhese/ignite-devops-ci-cd-studies/commit/6bcd597831f9a00be5772f4307ac54c646215162))
+
 # 1.0.0 (2024-06-19)
 
 
