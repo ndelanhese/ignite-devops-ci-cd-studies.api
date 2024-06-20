@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/ndelanhese/ignite-devops-ci-cd-studies.api/compare/v1.0.1...v1.0.2) (2024-06-20)
+
+
+### Bug Fixes
+
+* :lock: remove aws region to code ([4c58908](https://github.com/ndelanhese/ignite-devops-ci-cd-studies.api/commit/4c589083af5f393e0436005e4c687306567aa708))
+
 ## [1.0.1](https://github.com/ndelanhese/ignite-devops-ci-cd-studies/compare/v1.0.0...v1.0.1) (2024-06-19)
 
 
